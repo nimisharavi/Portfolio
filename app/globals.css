@@ -8,8 +8,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,3 +22,72 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* =========================
+   CINEMATIC FOG (NO TILING)
+   ========================= */
+
+.fog {
+  position: absolute;
+  inset: -50%;
+  background: url('/smoke.png');
+  background-size: 1200px 1200px;
+  filter: blur(8px);
+
+  animation:
+    fogMoveSlow 80s linear infinite,
+    fogPulse 14s ease-in-out infinite;
+
+  opacity: 0.08; /* 🔥 softer for minimal design */
+}
+
+.fog::before,
+.fog::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/smoke.png');
+}
+
+.fog::before {
+  background-size: 1600px 1600px;
+  opacity: 0.08;
+  animation: fogMoveFast 50s linear infinite;
+}
+
+.fog::after {
+  background-size: 2000px 2000px;
+  opacity: 0.06;
+  animation: fogMoveReverse 120s linear infinite;
+}
+
+@keyframes fogMoveSlow {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(-40%, -10%); }
+}
+
+@keyframes fogMoveFast {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(-70%, 0); }
+}
+
+@keyframes fogMoveReverse {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(50%, 10%); }
+}
+
+@keyframes fogPulse {
+  0%, 100% { opacity: 0.10; }
+  50%      { opacity: 0.18; }
+}
+/* =========================
+   TEXT GLOW (NAME)
+   ========================= */
+
+.glow {
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.2),
+    0 0 30px rgba(255,255,255,0.1);
+}
+
+
