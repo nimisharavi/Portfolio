@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+* {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
 }
 
 @theme inline {
@@ -18,76 +30,119 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #fdfbfb 0%,
+    #ebedee 40%,
+    #e3f2fd 70%,
+    #fce4ec 100%
+  );
+  color: #1a1a1a;
 }
 
-/* =========================
-   CINEMATIC FOG (NO TILING)
-   ========================= */
-
-.fog {
-  position: absolute;
-  inset: -50%;
-  background: url('/smoke.png');
-  background-size: 1200px 1200px;
-  filter: blur(8px);
-
-  animation:
-    fogMoveSlow 80s linear infinite,
-    fogPulse 14s ease-in-out infinite;
-
-  opacity: 0.08; /* 🔥 softer for minimal design */
+.bg-blur {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  z-index: -1;
 }
 
-.fog::before,
-.fog::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url('/smoke.png');
+.bg-blur.one {
+  background: #ffd6e0;
+  top: 10%;
+  left: 10%;
 }
 
-.fog::before {
-  background-size: 1600px 1600px;
-  opacity: 0.08;
-  animation: fogMoveFast 50s linear infinite;
+.bg-blur.two {
+  background: #cde7ff;
+  bottom: 10%;
+  right: 10%;
 }
 
-.fog::after {
-  background-size: 2000px 2000px;
-  opacity: 0.06;
-  animation: fogMoveReverse 120s linear infinite;
+/* Blob animations for parallax effect */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -50px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(50px, 50px) scale(1.05);
+  }
 }
 
-@keyframes fogMoveSlow {
-  from { transform: translate(0, 0); }
-  to   { transform: translate(-40%, -10%); }
+.animate-blob {
+  animation: blob 7s infinite;
 }
 
-@keyframes fogMoveFast {
-  from { transform: translate(0, 0); }
-  to   { transform: translate(-70%, 0); }
+.animation-delay-0 {
+  animation-delay: 0s;
 }
 
-@keyframes fogMoveReverse {
-  from { transform: translate(0, 0); }
-  to   { transform: translate(50%, 10%); }
+.animation-delay-2 {
+  animation-delay: 2s;
 }
 
-@keyframes fogPulse {
-  0%, 100% { opacity: 0.10; }
-  50%      { opacity: 0.18; }
-}
-/* =========================
-   TEXT GLOW (NAME)
-   ========================= */
-
-.glow {
-  text-shadow:
-    0 0 10px rgba(255,255,255,0.2),
-    0 0 30px rgba(255,255,255,0.1);
+.animation-delay-4 {
+  animation-delay: 4s;
 }
 
+/* Hero animation delays */
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+/* Fade In Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
 

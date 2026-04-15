@@ -1,15 +1,22 @@
-'use client';
-
-import ParallaxBackground from '@/components/ParallaxBackground';
-import HeroText from '@/components/HeroText';
-import SideNavButton from '@/components/SideNavButton';
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import Skills from '@/components/Skills';
+import Projects from '@/components/Projects';
+import { SectionDivider } from '@/components/SectionDivider';
 
 export default function Home() {
   return (
-    <main className="relative h-screen w-screen overflow-hidden bg-black">
-      <ParallaxBackground />
-      <HeroText />
-      <SideNavButton />
+    <main className="relative overflow-hidden">
+      <Hero />
+      <SectionDivider />
+
+      <About />
+      <SectionDivider />
+
+      <Skills />
+      <SectionDivider />
+
+      <Projects />
     </main>
   );
 }
