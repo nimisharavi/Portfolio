@@ -10,7 +10,7 @@ export default function Hero() {
       </h1>
 
       <p 
-        className="mt-6 text-gray-600 text-lg tracking-widest animate-fade-in-down uppercase"
+        className="mt-6 text-gray-600 text-lg tracking-widest animate-fade-in-down uppercase italic"
         style={{ animationDelay: '0.5s', letterSpacing: '4px', fontWeight: '500' }}
       >
         Software Engineer

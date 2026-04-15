@@ -12,7 +12,7 @@ export default function About() {
         </h2>
 
         <p 
-          className="text-gray-700 leading-relaxed animate-fade-in-up text-base font-light"
+          className="text-gray-700 leading-relaxed animate-fade-in-up text-base font-light italic"
           style={{ animationDelay: '0.4s', lineHeight: '1.8', fontWeight: '300' }}
         >
 I am a Software Engineer with 1+ years of experience building scalable, high-performance digital solutions that translate complex ideas into measurable business outcomes.

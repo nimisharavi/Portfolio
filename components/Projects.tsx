@@ -110,7 +110,7 @@ export default function Projects() {
             {/* 🔥 TEXT RIGHT */}
             <div>
               <h3 className="text-2xl font-bold mb-4 tracking-tight uppercase" style={{ letterSpacing: '0.5px' }}>{p.title}</h3>
-              <p className="text-gray-600 font-light leading-relaxed" style={{ lineHeight: '1.7', fontWeight: '300' }}>{p.desc}</p>
+              <p className="text-gray-600 font-light leading-relaxed italic" style={{ lineHeight: '1.7', fontWeight: '300' }}>{p.desc}</p>
             </div>
 
           </div>
@@ -179,7 +179,7 @@ export default function Projects() {
             {/* RIGHT: DESCRIPTION */}
             <div className="w-1/2 p-6 overflow-y-auto flex flex-col">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Description</h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed italic font-light" style={{ lineHeight: '1.7' }}>
                 {selectedProject.desc}
               </p>
             </div>
