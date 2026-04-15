@@ -2,8 +2,15 @@
 
 import { useState } from 'react';
 
+type Project = {
+  title: string;
+  desc: string;
+  images?: string | string[];
+  image?: string;
+};
+
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const projects = [
     {
@@ -90,7 +97,7 @@ export default function Projects() {
                 return (
                   <div className="flex gap-4 h-full overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2
                     [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                    {imageList.map((img, idx) => (
+                    {imageList.map((img: string, idx: number) => (
                       <div
                         key={idx}
                         className="flex-shrink-0 w-full h-full flex items-center justify-center p-4 snap-center group-hover:opacity-75 transition-opacity duration-300"
@@ -158,7 +165,7 @@ export default function Projects() {
                   return (
                     <div className="flex gap-4 h-full overflow-x-auto scroll-smooth snap-x snap-mandatory
                       [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-gray-200 [&::-webkit-scrollbar-thumb]:bg-gray-400 [&::-webkit-scrollbar-thumb]:rounded-full">
-                      {imageList.map((img, idx) => (
+                      {imageList.map((img: string, idx: number) => (
                         <div
                           key={idx}
                           className="flex-shrink-0 w-full h-full flex items-center justify-center p-2 snap-center"
